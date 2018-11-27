@@ -16,7 +16,17 @@ Vue.config.productionTip = false;
 //在进入路由之前每一次都会执行这个方法,全局钩子函数
 router.beforeEach((to, from, next) => {
     document.title = "柏域思-" + to.meta.title;
-    next()
+    if (to.path !== '/') {
+        if (store.state.loginState) {
+            next()
+        } else {
+            next('/')
+        }
+    } else {
+        next()
+    }
+
+
 });
 new Vue({
     router,

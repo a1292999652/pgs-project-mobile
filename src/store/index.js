@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 
 const state = {
-    showSearchBox: false,
+    loginState: false,
 };
 
 export default new Vuex.Store({

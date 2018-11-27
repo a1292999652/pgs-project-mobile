@@ -1,5 +1,5 @@
 export default {
-    showSearchBox(state,value) {
-        state.showSearchBox = value
+    loginState(state,value) {
+        state.loginState = value
     }
 }
