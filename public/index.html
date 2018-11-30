@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
+    <script>
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+            plus.navigator.setFullscreen(true);
+            //注册返回按键事件
+            plus.key.addEventListener('backbutton', function () {
+                // 事件处理
+                plus.nativeUI.confirm("退出程序？", function (event) {
+                    if (!event.index) {
+                        plus.runtime.quit();
+                    }
+                }, null, ["确定", "取消"]);
+            }, false);
+
+        });
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_936338_b3jg5twkvjn.css">
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_936338_b3jg5twkvjn.css">-->
+    <link rel="stylesheet" href="./iconFont/iconfont.css">
     <title>pgs-project-mobile</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but pgs-project-mobile doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but pgs-project-mobile doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>

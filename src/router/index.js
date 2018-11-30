@@ -7,6 +7,7 @@ const routes = [
     {path: '/', component:()=>import('../pages/login/'), meta: {title: "登录", showHeader: true, showGoBack: false}},
     {path: '/menu', component:()=>import('../pages/menu/'), meta: {title: "功能", showHeader: true, showGoBack: false}},
     {path: '/productShelves', component:()=>import('../pages/productShelves/'), meta: {title: "产品上架", showHeader: true, showGoBack: true}},
+    {path: '/productList', component:()=>import('../pages/productList/'), meta: {title: "产品列表", showHeader: true, showGoBack: true}},
 ];
 
 

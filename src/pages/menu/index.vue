@@ -6,7 +6,7 @@
                 <grid :show-lr-borders="false">
                     <grid-item label="产品上架" @click.native="handleToProductShelves">
                     <span class="grid-center" slot="icon">
-                        <i class="iconfont icon-chanpinshangjia"></i>
+                        <i class="iconfont icon-chanpinshangjia" style="font-size: 1.2rem"></i>
                     </span>
                     </grid-item>
                 </grid>
@@ -15,7 +15,7 @@
         <transition :enter-active-class="enter" :leave-active-class="leave">
             <div class="menu-center" v-show="change==='about'">
                 <div style="width: 100%"></div>
-                <XButton style="width: 88%; margin-top: 1rem" type="warn" @click.native="handleQureLogin">退出登录</XButton>
+                <XButton style="width: 88%; margin-top: 1rem" type="warn" @click.native="handleQuitLogin">退出登录</XButton>
             </div>
         </transition>
         <tabbar style="position: fixed">
@@ -58,7 +58,8 @@
             handleToProductShelves() {
                 this.$router.push('productShelves')
             },
-            handleQureLogin(){
+            handleQuitLogin() {
+                this.$store.commit('loginState', {success: false, id: null});
                 this.$router.push('/')
             }
 
@@ -87,5 +88,9 @@
         top: 0;
         left: 0;
         bottom: 0;
+    }
+    /deep/.weui-grid__label{
+        height: 24px;
+        line-height: 24px;
     }
 </style>

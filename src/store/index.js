@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 
 const state = {
-    loginState: false,
+    loginState: {success: false, id: null},
 };
 
 export default new Vuex.Store({

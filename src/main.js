@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 router.beforeEach((to, from, next) => {
     document.title = "柏域思-" + to.meta.title;
     if (to.path !== '/') {
-        if (store.state.loginState) {
+        if (store.state.loginState.success) {
             next()
         } else {
             next('/')
@@ -25,8 +25,6 @@ router.beforeEach((to, from, next) => {
     } else {
         next()
     }
-
-
 });
 new Vue({
     router,
