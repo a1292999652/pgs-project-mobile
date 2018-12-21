@@ -2,11 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import './common/style/resetCSS.less'
 import './common/style/sytle.less'
+import 'pretty-checkbox/src/pretty-checkbox.scss';
+//import './assets/icon-font/iconfont.css'
 import 'animate.css'
 import fastClick from 'fastclick'
 import router from './router'
 import store from './store'
 
+import PrettyCheckbox from 'pretty-checkbox-vue';
+
+Vue.use(PrettyCheckbox);
 Vue.config.productionTip = false;
 
 //解决移动端300ms延时

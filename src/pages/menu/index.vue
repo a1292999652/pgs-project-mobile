@@ -1,13 +1,17 @@
 <template>
     <div>
-
         <transition :enter-active-class="enter" :leave-active-class="leave">
             <div class="menu-center" v-show="change==='modules'">
                 <grid :show-lr-borders="false">
                     <grid-item label="产品上架" @click.native="handleToProductShelves">
-                    <span class="grid-center" slot="icon">
-                        <i class="iconfont icon-chanpinshangjia" style="font-size: 1.2rem"></i>
-                    </span>
+                        <span class="grid-center" slot="icon">
+                            <i class="iconfont icon-chanpinshangjia" style="font-size: 1.2rem"></i>
+                        </span>
+                    </grid-item>
+                    <grid-item label="产品拣货" @click.native="handleToProductPicking">
+                        <span class="grid-center" slot="icon">
+                            <i class="iconfont icon-jianhuo" style="font-size: 1.2rem"></i>
+                        </span>
                     </grid-item>
                 </grid>
             </div>
@@ -58,6 +62,9 @@
             handleToProductShelves() {
                 this.$router.push('productShelves')
             },
+            handleToProductPicking() {
+                this.$router.push('productPicking')
+            },
             handleQuitLogin() {
                 this.$store.commit('loginState', {success: false, id: null});
                 this.$router.push('/')
@@ -89,7 +96,8 @@
         left: 0;
         bottom: 0;
     }
-    /deep/.weui-grid__label{
+
+    /deep/ .weui-grid__label {
         height: 24px;
         line-height: 24px;
     }

@@ -1,6 +1,7 @@
 <template>
     <div id="app">
-        <XHeader :left-options="{showBack:this.$route.meta.showGoBack}">
+        <XHeader :right-options="{showMore:this.$route.meta.showMore}"
+                 :left-options="{showBack:this.$route.meta.showGoBack}">
             {{this.$route.meta.title}}
         </XHeader>
         <div class="container">

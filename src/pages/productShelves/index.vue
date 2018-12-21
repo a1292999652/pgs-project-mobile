@@ -155,11 +155,11 @@
 
             },
             setStrLocSuccessful(res) {
-                console.log(res);
+                console.log(res.data);
                 if (res.data.success) {
-                    this.saveData.slsId = res.data.wareHouse.slsId;
+                    this.saveData.slsId = res.data.productPutaways.slsId;
                     this.locationCodeScan = '';
-                    this.list2[0].value = res.data.wareHouse.slsCode;
+                    this.list2[0].value = res.data.productPutaways.slsCode;//wareHouse
                 } else {
                     alert(res.data.message);
                     this.value2 = ''
@@ -181,15 +181,17 @@
                     mapFile: "ToProduct.xml",
                     putNo: this.saveData.putNo,
                     sku: this.saveData.sku
-                }).then(this.isCheckSuccessful).catch(() => {
+                }).then(this.isCheckSuccessful).catch((res) => {
+                    console.log(res);
                     alert('请求失败！');
                 })
             },
             isCheckSuccessful(res) {
-                console.log(res.data);
+                console.log("1111",res.data);
                 if (res.data.productPutawaysCheck.id === 0) {
                     console.log('保存');
-                    doSave(this.saveData).then(this.doSaveSuccessful).catch(() => {
+                    doSave(this.saveData).then(this.doSaveSuccessful).catch((res) => {
+                        console.log(res);
                         alert('请求失败！');
                     });
                 } else {

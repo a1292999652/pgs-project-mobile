@@ -12,7 +12,12 @@ module.exports = {
     configureWebpack: config => {
         require('vux-loader').merge(config, {
             options: {},
-            plugins: ['vux-ui']
+            plugins: ['vux-ui',
+                {
+                    name: 'less-theme',
+                    path: 'src/config/style/theme.less' // 相对项目根目录路径
+                }
+                ],
         })
 
 
