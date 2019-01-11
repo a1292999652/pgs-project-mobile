@@ -11,7 +11,7 @@
                     <th>拣货数</th>
                 </tr>
                 </thead>
-                <tbody v-for="val in 10" :key="val">
+                <tbody v-for="val in 4" :key="val">
                 <tr>
                     <td colspan="3">
                         <div style="width: 100%;background-color: #F0F5FB">
@@ -82,19 +82,19 @@
         </div>
         <div class="bottom">
             <div class="bottom-box font-size-text">
+                <!--<div>-->
+                <!--<Pcheck class="check-box p-icon p-curve p-fill p-smooth" color="success"-->
+                <!--v-model="demo1">-->
+                <!--<i slot="extra" class="icon iconfont icon-gouxuan"></i>-->
+                <!--全选-->
+                <!--</Pcheck>-->
+                <!--</div>-->
                 <div>
-                    <Pcheck class="check-box p-icon p-curve p-fill p-smooth" color="success"
-                            v-model="demo1">
-                        <i slot="extra" class="icon iconfont icon-gouxuan"></i>
-                        全选
-                    </Pcheck>
+                    <p>已选2个订单</p>
+                    <p>一共30件货</p>
                 </div>
                 <div>
-                    <p>2个订单</p>
-                    <p>30件货</p>
-                </div>
-                <div>
-                    <XButton type="primary" mini>去拣货</XButton>
+                    <XButton type="primary" mini @click.native="handleGoPicking">去拣货</XButton>
                 </div>
             </div>
         </div>
@@ -117,15 +117,30 @@
                 </x-table>
             </div>
         </Confirm>
-        <Actionsheet v-model="show2" :menus="menus2" @on-click-menu="click" show-cancel></Actionsheet>
+        <Confirm v-model="filter" title="过滤订单" confirm-text="过滤" @on-confirm="handleFilterOk">
+            <Group style="margin-bottom: 20px">
+                <XInput type="text" placeholder="订单号">
+                    <span slot="right">
+                        <i class="iconfont icon-dingdanhao" style="font-size: 20px"></i>
+                    </span>
+                </XInput>
+                <XInput type="text" placeholder="客户名">
+                    <span slot="right">
+                        <i class="iconfont icon-kehu" style="font-size: 20px"></i>
+                    </span>
+                </XInput>
+            </Group>
+        </Confirm>
     </div>
 </template>
 
 <script>
-    import {XTable, XButton, XInput, Confirm, Group,Actionsheet} from 'vux'
+    import {XTable, XButton, XInput, Confirm, Group} from 'vux'
     import Pcheck from 'pretty-checkbox-vue/check';
+    import {mapState} from 'vuex'
 
     export default {
+        name: 'allocate-goods-basket',
         components: {
             XTable,
             Pcheck,
@@ -133,17 +148,31 @@
             Confirm,
             XInput,
             Group,
-            Actionsheet
         },
         data() {
             return {
                 demo1: false,
-                show2: true,
-                menus2: {
-                    menu1: 'Take Photo',
-                    menu2: 'Choose from photos'
-                },
-                showAddBasket: false
+                showAddBasket: false,
+                filter: false
+            }
+        },
+        computed: {
+            ...mapState(['showFilter']),
+        },
+        watch: {
+            filter(newVal) {
+                if (!newVal) this.$store.commit('showFilter', false);
+            },
+            showFilter(newVal) {
+                this.filter = newVal
+            }
+        },
+        methods: {
+            handleFilterOk() {
+//
+            },
+            handleGoPicking() {
+                this.$router.push("/product-picking")
             }
         }
     }
@@ -283,11 +312,11 @@
         align-items: center;
         margin: 0 auto;
 
-        & > div:nth-child(1) {
-            width: 60px;
-        }
+        /*& > div:nth-child(1) {*/
+        /*width: 60px;*/
+        /*}*/
 
-        & > div:nth-child(2) {
+        & > div:nth-child(1) {
             flex: 1;
             margin-left: 10px;
             margin-right: 10px;

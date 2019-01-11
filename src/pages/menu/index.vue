@@ -60,10 +60,10 @@
                 }
             },
             handleToProductShelves() {
-                this.$router.push('productShelves')
+                this.$router.push('product-shelves')
             },
             handleToProductPicking() {
-                this.$router.push('productPicking')
+                this.$router.push('allocate-goods-basket')
             },
             handleQuitLogin() {
                 this.$store.commit('loginState', {success: false, id: null});

@@ -1,24 +1,31 @@
 <template>
     <div id="app">
-        <XHeader :right-options="{showMore:this.$route.meta.showMore}"
-                 :left-options="{showBack:this.$route.meta.showGoBack}">
-            {{this.$route.meta.title}}
-        </XHeader>
+        <Header :title="$route.meta.title"></Header>
+        <!--<XHeader :right-options="{showMore:this.$route.meta.showMore}"-->
+        <!--:left-options="{showBack:this.$route.meta.showGoBack}">-->
+        <!--{{this.$route.meta.title}}-->
+        <!--</XHeader>-->
         <div class="container">
             <transition :enter-active-class="enter" :leave-active-class="leave">
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </transition>
         </div>
     </div>
 </template>
 
 <script>
-    import {XHeader} from 'vux'
+    import Header from '@/common/components/header'
 
     export default {
         name: 'app',
-        components: {XHeader},
+        components: {Header},
+
         data() {
+            // var agent = navigator.userAgent.toLowerCase();
+            // var regStr_chrome = /chrome\/[\d.]+/gi;
+            // alert(agent.match(regStr_chrome));
             return {
                 enter: 'animated faster fadeIn',
                 leave: 'animated faster fadeOut'
@@ -40,7 +47,7 @@
     .container {
         width: 100%;
         position: absolute;
-        top: 46px;
+        top: 2.6rem;
         left: 0;
         bottom: 0;
     }

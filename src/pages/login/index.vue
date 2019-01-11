@@ -34,7 +34,7 @@
             Group, XInput, XButton, Toast, CheckIcon
         },
         mounted() {
-            this.initState()
+            this.initState();
         },
         methods: {
             handleSubmit() {

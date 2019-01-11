@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const state = {
     loginState: {success: false, id: null},
+    showFilter: false,
 };
 
 export default new Vuex.Store({

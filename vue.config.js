@@ -2,6 +2,8 @@
 module.exports = {
     // 选项...
     baseUrl: './',
+    // 输出文件目录
+    outputDir: '/Users/juner/Documents/pgs-mobile-cordova-project/www',
     devServer: {
         host: "0.0.0.0",
         port: 8080, // 端口号

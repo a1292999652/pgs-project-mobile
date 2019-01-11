@@ -7,27 +7,55 @@ const routes = [
     {
         path: '/',
         component: () => import('../pages/login/'),
-        meta: {title: "登录", showHeader: true, showGoBack: false, showMore: false}
+        meta: {title: "登录", showHeader: true, showGoBack: false, showRightIcon: false}
     },
     {
         path: '/menu',
         component: () => import('../pages/menu/'),
-        meta: {title: "功能", showHeader: true, showGoBack: false, showMore: false}
+        meta: {title: "功能", showHeader: true, showGoBack: false, showRightIcon: false}
     },
     {
-        path: '/productShelves',
-        component: () => import('../pages/productShelves/'),
-        meta: {title: "产品上架", showHeader: true, showGoBack: true, showMore: false}
+        path: '/product-shelves',
+        component: () => import('../pages/product-shelves/'),
+        meta: {title: "产品上架", showHeader: true, showGoBack: true, showRightIcon: false}
     },
     {
-        path: '/productList',
-        component: () => import('../pages/productList/'),
-        meta: {title: "产品列表", showHeader: true, showGoBack: true, showMore: false}
+        path: '/product-list',
+        component: () => import('../pages/product-list/'),
+        meta: {title: "产品列表", showHeader: true, showGoBack: true, showRightIcon: false}
     },
     {
-        path: '/productPicking',
-        component: () => import('../pages/productPicking/'),
-        meta: {title: "分配货篮", showHeader: true, showGoBack: true, showMore: true, moreType: "AGB"}
+        path: '/allocate-goods-basket',
+        component: () => import('../pages/allocate-goods-basket/'),
+        meta: {
+            title: "分配货篮",
+            showHeader: true,
+            showGoBack: true,
+            showRightIcon: true,
+            rightIconClassName: "icon-guolv",
+            rightClickType: "showFilter"
+        }
+    },
+    {
+        path: '/product-picking',
+        component: () => import('../pages/product-picking/'),
+        meta: {
+            title: "产品拣货",
+            showHeader: true,
+            showGoBack: true,
+        }
+    },
+    {
+        path: '/picking',
+        component: () => import('../pages/picking/'),
+        meta: {
+            title: "拣货",
+            showHeader: true,
+            showGoBack: true,
+            showRightIcon: true,
+            rightIconClassName: "icon-wanchengquerengouwubiankuang",
+            rightClickType: "showFilter"
+        }
     },
 ];
 

@@ -1,0 +1,59 @@
+.vm-collapse {
+  border-radius: 0;
+}
+.vm-collapse--bordered {
+  border: 1px solid #dfe6ec;
+}
+.vm-collapse-item__header {
+  height: 43px;
+  padding-left: 15px;
+  font-size: 13px;
+  line-height: 43px;
+  color: #48576a;
+  background-color: #fff;
+  border-bottom: 1px solid #dfe6ec;
+  cursor: pointer;
+}
+.vm-collapse-item__header__arrow {
+  transition: transform .3s, top .3s;
+}
+.vm-collapse-item__wrap {
+  will-change: height;
+  background-color: #fbfdff;
+  border-bottom: 1px solid #dfe6ec;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.vm-collapse-item__content {
+  padding: 10px 15px;
+  font-size: 13px;
+  color: #1f2d3d;
+  line-height: 1.769230769230769;
+}
+.vm-collapse-item.is-active > .vm-collapse-item__header .vm-collapse-icon--arrow-right {
+  top: 6px;
+  transform: rotate(90deg);
+}
+.vm-collapse-item:last-child {
+  margin-bottom: -1px;
+}
+.vm-collapse-icon--arrow-right {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  transform: rotate(0deg);
+}
+.vm-collapse-icon--arrow-right:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: #48576a;
+}
+.vm-collapse .collapse-transition {
+  transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out;
+}
+/*# sourceMappingURL=index.css.map */

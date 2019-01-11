@@ -197,7 +197,7 @@
                 } else {
                     console.log('不保存');
                     this.$router.push({
-                        path: '/productList',
+                        path: '/product-list',
                         query: {
                             putNo: this.saveData.putNo,
                             isQualified: String(this.saveData.isQualified),
@@ -208,7 +208,7 @@
             doSaveSuccessful(res) {
                 console.log(res);
                 this.$router.push({
-                    path: '/productList',
+                    path: '/product-list',
                     query: {
                         putNo: this.saveData.putNo,
                         isQualified: String(this.saveData.isQualified),

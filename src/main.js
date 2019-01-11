@@ -8,10 +8,10 @@ import 'animate.css'
 import fastClick from 'fastclick'
 import router from './router'
 import store from './store'
-
 import PrettyCheckbox from 'pretty-checkbox-vue';
-
+import VmCollapse from './common/components/vue-multiple-collapse/src'
 Vue.use(PrettyCheckbox);
+Vue.use(VmCollapse);
 Vue.config.productionTip = false;
 
 //解决移动端300ms延时
